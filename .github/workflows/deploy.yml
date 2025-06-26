@@ -7,6 +7,21 @@ on:
     branches: [ main, master ]
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout test repo (auto-test-cicd)
+        uses: actions/checkout@v4
+        with:
+          repository: Mutto1003/auto-test-cicd
+          path: test-repo
+
+      - name: Run tests
+        run: |
+          cd test-repo
+          npm install
+          npm run test         # หรือคำสั่งที่เหมาะสมกับ repo ของคุณ
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +41,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
