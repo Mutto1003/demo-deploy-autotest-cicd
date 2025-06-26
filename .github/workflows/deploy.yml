@@ -19,7 +19,9 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'  # หรือ '.' หาก index.html อยู่ root
+          name: demo-app
+          path: 'index.html'  # หรือ '.' หาก index.html อยู่ root
+          retention-days: 1
 
   deploy:
     needs: build
@@ -31,3 +33,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: index
