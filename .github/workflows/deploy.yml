@@ -19,10 +19,12 @@ jobs:
       - name: Run tests
         run: |
           cd test-repo
+          npx playwright install
           npm install
           npm run test         # หรือคำสั่งที่เหมาะสมกับ repo ของคุณ
 
   build:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
