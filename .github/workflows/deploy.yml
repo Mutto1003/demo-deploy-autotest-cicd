@@ -20,7 +20,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           name: demo-app
-          path: 'index.html'  # หรือ '.' หาก index.html อยู่ root
+          path: '.'  # หรือ '.' หาก index.html อยู่ root
           retention-days: 1
 
   deploy:
