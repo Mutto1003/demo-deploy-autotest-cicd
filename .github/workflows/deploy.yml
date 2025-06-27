@@ -22,7 +22,7 @@ jobs:
           npx playwright install --with-deps
           npx playwright install
           npm install
-          npm run test         # หรือคำสั่งที่เหมาะสมกับ repo ของคุณ
+          npm run test
 
   build:
     needs: test
